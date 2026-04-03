@@ -1,0 +1,19 @@
+# ===== BACKEND (Spring Boot) =====
+backend/target/
+backend/*.log
+backend/*.class
+backend/.mvn/
+
+# Sensitive files
+backend/src/main/resources/application.properties
+
+# ===== FRONTEND (React Native / Expo) =====
+frontend/node_modules/
+frontend/.expo/
+frontend/.expo-shared/
+frontend/dist/
+
+# ===== GENERAL =====
+.env
+*.log
+.DS_Store
