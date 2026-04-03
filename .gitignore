@@ -5,7 +5,7 @@ backend/*.class
 backend/.mvn/
 
 # Sensitive files
-backend/src/main/resources/application.properties
+backend/app/src/main/resources/application.properties
 
 # ===== FRONTEND (React Native / Expo) =====
 frontend/node_modules/
