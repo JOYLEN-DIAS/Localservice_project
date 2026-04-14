@@ -45,4 +45,14 @@ public class Authservice {
 
         return jwtutil.generatetoken(user.getEmail(), user.getRoles().getFirst().toString());
     }
+    public User getLoggedInUser(String token) {
+        if (token.startsWith("Bearer ")) {
+            token = token.substring(7);
+        }
+
+        String email = jwtutil.extractEmail(token);
+
+        return userrepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+    }
 }

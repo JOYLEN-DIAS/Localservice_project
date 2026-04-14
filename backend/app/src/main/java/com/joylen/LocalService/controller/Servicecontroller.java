@@ -1,5 +1,6 @@
 package com.joylen.LocalService.controller;
 
+import com.joylen.LocalService.dto.ServiceResponsedto;
 import com.joylen.LocalService.dto.Servicerequestdto;
 import com.joylen.LocalService.model.Service;
 import com.joylen.LocalService.service.Providerservice;
@@ -17,17 +18,20 @@ public class Servicecontroller {
 
     //provider adds his services
     @PostMapping
-    public ResponseEntity<Service> addservice(@RequestHeader("Authorization") String token, @RequestBody Servicerequestdto dto){
-        return ResponseEntity.ok(providerservice.addservice(token,dto));
+    public ResponseEntity<Service> addservice(@RequestBody Servicerequestdto dto){
+        System.out.println("CONTROLLER HIT");
+        return ResponseEntity.ok(providerservice.addservice(dto));
     }
 
     @GetMapping
-    public ResponseEntity<List<Service>> getallservice(){
+    public ResponseEntity<List<ServiceResponsedto>> getallservice(){
+        System.out.println("CONTROLLER HIT");
         return ResponseEntity.ok(providerservice.getallservice());
     }
 
     @GetMapping("/provider/{provider_id}")
-    public ResponseEntity<List<Service>> getproviderservice(@PathVariable Long provider_id){
+    public ResponseEntity<List<ServiceResponsedto>> getproviderservice(@PathVariable Long provider_id){
+        System.out.println("CONTROLLER HIT");
         return ResponseEntity.ok(providerservice.getproviderservice(provider_id));
     }
 }

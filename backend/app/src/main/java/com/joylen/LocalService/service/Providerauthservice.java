@@ -7,6 +7,8 @@ import com.joylen.LocalService.model.User;
 import com.joylen.LocalService.repository.Providerrepository;
 import com.joylen.LocalService.repository.Userrepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -34,7 +36,7 @@ public class Providerauthservice {
             user.getRoles().add(Role.PROVIDER);
             userrepository.save(user);
         }
-
         return "provider saved successfull";
     }
+
 }
