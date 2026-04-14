@@ -18,7 +18,7 @@ public class Servicecontroller {
 
     //provider adds his services
     @PostMapping
-    public ResponseEntity<Service> addservice(@RequestBody Servicerequestdto dto){
+    public ResponseEntity<ServiceResponsedto> addservice(@RequestBody Servicerequestdto dto){
         System.out.println("CONTROLLER HIT");
         return ResponseEntity.ok(providerservice.addservice(dto));
     }

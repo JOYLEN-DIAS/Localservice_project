@@ -21,7 +21,7 @@ public class Providerservice {
 
     private final Servicerepository servicerepository;
     private final CurrentUserservice currentUserservice;
-    public Service addservice(Servicerequestdto dto){
+    public ServiceResponsedto addservice(Servicerequestdto dto){
 
         Provider provider = currentUserservice.getCurrentProvider();
 
@@ -32,7 +32,15 @@ public class Providerservice {
                 .provider(provider)
                 .build();
 
-        return servicerepository.save(service);
+        Service service2 = servicerepository.save(service);
+        return new ServiceResponsedto(
+                service2.getId(),
+                service2.getServicetitle(),
+                service2.getPrice(),
+                service2.isAvailable(),
+                service2.getProvider().getId()
+
+        );
     }
 
     //for a normal user to see the provider service

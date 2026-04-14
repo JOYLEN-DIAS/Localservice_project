@@ -10,7 +10,8 @@ import java.util.Date;
 
 @Component
 public class Jwtutil {
-    private final SecretKey key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+    private final String secret = "joylensecretforlocalserviceapp123";
+    private final SecretKey key = Keys.hmacShaKeyFor(secret.getBytes());
     public String generatetoken(String email, String role){
         return Jwts.builder()
                 .setSubject(email)

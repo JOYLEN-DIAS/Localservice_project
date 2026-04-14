@@ -1,5 +1,6 @@
 package com.joylen.LocalService.controller;
 
+import com.joylen.LocalService.dto.Loginrequest;
 import com.joylen.LocalService.model.User;
 import com.joylen.LocalService.service.Authservice;
 import lombok.RequiredArgsConstructor;
@@ -18,8 +19,10 @@ public class Authcontroller {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestParam String email,@RequestParam String password){
-        return ResponseEntity.ok(authservice.login(email,password));
+    public ResponseEntity<String> login(@RequestBody Loginrequest request){
+        System.out.println("EMAIL: " + request.getEmail());
+        System.out.println("PASSWORD: " + request.getPassword());
+        return ResponseEntity.ok(authservice.login(request.getEmail(), request.getPassword()));
     }
 
 
